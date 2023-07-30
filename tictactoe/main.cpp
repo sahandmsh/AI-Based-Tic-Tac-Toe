@@ -1,7 +1,7 @@
 #include "TTT.hpp"
 int main(){
     string s="";
-    srand( int ( time(0) ) );
+    srand( int ( time(0) ) ); 
     TTT G;
     cout<< "AI-Based bot is learning! Please wait :)\n";
     G.episodic_learning(2000000);

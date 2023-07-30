@@ -1,6 +1,6 @@
 #include "TTT.hpp"
 TTT::TTT(){
-    Board = "123456789";
+    Board = "123456789"; 
     P1 = 'X';
     P2 = '@';
     P_winner = 'X'; // only an initial value
