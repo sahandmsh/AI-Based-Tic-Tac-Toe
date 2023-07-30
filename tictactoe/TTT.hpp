@@ -2,12 +2,10 @@
 #include <utility>
 #include <string>
 #include <map>
+using namespace std;
 
 #ifndef CLASS_TTT
-
 #define CLASS_TTT
-
-using namespace std;
 
 class TTT{
     map <string , float> m; 
@@ -31,6 +29,5 @@ public:
     bool winner();
     
 };
-
 
 #endif
