@@ -14,10 +14,10 @@ TTT::TTT(){
 //###############################################
 void TTT::print (){
     for (int i=0;i<9;++i){
-        if (i%3==0){cout<<"\n-------------\n|";}
-        cout<<" "<<Board[i]<<" |";
+        if (i%3==0){std::cout<<"\n-------------\n|";}
+        std::cout<<" "<<Board[i]<<" |";
     }
-    cout<<"\n-------------\n";
+    std::cout<<"\n-------------\n";
 }
 //###############################################
 void TTT::reset(){
@@ -35,9 +35,9 @@ int TTT::bot_play(char P, float eps_){
 }
 //###############################################
 void TTT::user_play(char P){
-    string s;
+    std::string s;
     int x;
-    cout<<"\nPlease make a selection --- ";
+    std::cout<<"\nPlease make a selection --- ";
     getline(cin,s);
     x = stoi(s);
     Board[x-1] = P;
@@ -58,7 +58,7 @@ int TTT::random_play(char P, int x){
 //###############################################
 int TTT::greedy(char P){
     float val=-100;
-    string S_A;
+    std::string S_A;
     vector <int> v;
     for (int i=0;i<9;++i){
         if (Board[i]!=P1 && Board[i]!=P2){
@@ -71,7 +71,7 @@ int TTT::greedy(char P){
         }
     }
     /*--------  Making random selection in case that there exists
-                more than one action with maximum Q value! */
+                more than one action with the maximum Q value! */
     for (int i=0;i<9;++i){
         if (Board[i]!=P1 && Board[i]!=P2){
             S_A = Board;
@@ -85,7 +85,7 @@ int TTT::greedy(char P){
 //###############################################
 void TTT::Q_Update(){
     float val=-100;
-    string S_A;
+    std::string S_A;
     for (int i=0;i<9;++i){
         if (Board[i]!=P1 && Board[i]!=P2){
             S_A = Board;
@@ -101,7 +101,7 @@ void TTT::Q_Update(){
 //###############################################
 void TTT::episode(){
     reset();
-    pair <string, int> S_A;
+    pair <std::string, int> S_A;
     while (available_actions>0){
         if (P_turn == 0){
             if (available_actions<9){
@@ -135,7 +135,7 @@ void TTT::episodic_learning(int n){
     for (int i=0;i<n;++i){
         episode();
     }
-    cout<<"THE TOTAL COUNT OF P1 WINS is "<<P1_win_count<<endl;
+    std::cout<<"THE TOTAL COUNT OF P1 WINS is "<<P1_win_count<<endl;
 }
 //###############################################
 bool TTT::winner(){
@@ -163,10 +163,10 @@ void TTT::evaluate(){
     reset();
     eps = 100;
     P_turn = 0;
-    pair <string , int> S_A;
-    cout<<"\n ----------------------------------- \n";
-    cout<<"\n ------------ NEW MATCH ------------ \n";
-    cout<<"\n ----------------------------------- \n";
+    pair <std::string , int> S_A;
+    std::cout<<"\n ----------------------------------- \n";
+    std::cout<<"\n ------------ NEW MATCH ------------ \n";
+    std::cout<<"\n ----------------------------------- \n";
     while (available_actions>0){
         if (P_turn == 0){
             if (available_actions<9){
@@ -187,9 +187,9 @@ void TTT::evaluate(){
                 m[cur_state_action] = 1;
                 P1_win_count++;
                 print();
-                cout<<"BOT WON THIS ROUND!\n";
+                std::cout<<"BOT WON THIS ROUND!\n";
             }
-            else{cout<<"YOU WIN! GOOD JOB!\n";}
+            else{std::cout<<"YOU WIN! GOOD JOB!\n";}
             break;
         }
 

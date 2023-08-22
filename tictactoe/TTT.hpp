@@ -8,12 +8,12 @@ using namespace std;
 #define CLASS_TTT
 
 class TTT{
-    map <string , float> m; 
+    map <std::string , float> m;
     char P1 , P2, P_winner;
     int available_actions , P_turn, P1_win_count;
-    string pre_state_action, cur_state_action;
+    std::string pre_state_action, cur_state_action;
 public:
-    string Board;
+    std::string Board;
     float alpha, gamma, eps;
     TTT();
     void print();
