@@ -11,13 +11,16 @@ random moves. To make sure that RL observes as much states as possible, we may n
 After training phase is over, now a human player can start playing against the RL agent. It is noted that, the RL will continue to learn while playing against a human player.
 Below you can see a sample of the simulation results (training RL agent over 2 000 000 round of playing against the random player). The AI uses "X" while the human player uses "@".
 
-![Screenshot 2023-08-22 at 11 36 01 AM](https://github.com/sahandmsh/RL-Based-Tic-Tac-Toe/assets/82970651/8c98a672-c00c-4eb9-befd-998952fa700e)
+![Screenshot 2023-08-22 at 11 36 01 AM](https://github.com/sahandmsh/AI-Based-Tic-Tac-Toe/assets/82970651/e590a42d-642e-4791-8946-640f867c5368)
+
 
 Example of AI as the winner:
 
-![Screenshot 2023-08-22 at 11 39 19 AM](https://github.com/sahandmsh/RL-Based-Tic-Tac-Toe/assets/82970651/9d9bb093-bb9d-4e70-b363-6e16cabd91ae)
+![Screenshot 2023-08-22 at 11 39 19 AM](https://github.com/sahandmsh/AI-Based-Tic-Tac-Toe/assets/82970651/edb1e7a7-896e-4f85-809e-1d3c92635aea)
+
 
 
 Example of Draw:
 
-![Screenshot 2023-08-22 at 11 40 37 AM](https://github.com/sahandmsh/RL-Based-Tic-Tac-Toe/assets/82970651/aa29113d-2fa4-4e69-81fd-0c9f9b0d65d2)
+![Screenshot 2023-08-22 at 11 40 37 AM](https://github.com/sahandmsh/AI-Based-Tic-Tac-Toe/assets/82970651/641730d7-5e22-433b-8a7f-c5627d4b26f6)
+
