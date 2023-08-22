@@ -11,7 +11,7 @@ TTT::TTT(){
     gamma = 0.9;
     P1_win_count = 0;
 }
-//###############################################
+
 void TTT::print (){
     for (int i=0;i<9;++i){
         if (i%3==0){std::cout<<"\n-------------\n|";}
@@ -19,30 +19,35 @@ void TTT::print (){
     }
     std::cout<<"\n-------------\n";
 }
-//###############################################
+
 void TTT::reset(){
     Board = "123456789";
     available_actions = 9;
     P_turn = 0;
     cur_state_action = Board;
 }
-//###############################################
+
 int TTT::bot_play(char P, float eps_){
     int x;
     if (rand()%100>eps_){x = random_play(P,available_actions);}
     else{x = greedy(P);}
     return x;
 }
-//###############################################
+
 void TTT::user_play(char P){
     std::string s;
     int x;
     std::cout<<"\nPlease make a selection --- ";
-    getline(cin,s);
+    std::getline(std::cin,s);
     x = stoi(s);
+    while (Board[x-1]=='X' || Board[x-1]=='@' || x>9 ||x<1){
+        std::cout<<"Please make a valid selection from the available numbers";
+        std::getline(std::cin,s);
+        x = stoi(s);
+    }
     Board[x-1] = P;
 }
-//###############################################
+
 int TTT::random_play(char P, int x){
     x = rand()%x + 1;
     for (int i=0;i<9;++i){
@@ -55,11 +60,11 @@ int TTT::random_play(char P, int x){
     }
     return x;
 }
-//###############################################
+
 int TTT::greedy(char P){
     float val=-100;
     std::string S_A;
-    vector <int> v;
+    std::vector <int> v;
     for (int i=0;i<9;++i){
         if (Board[i]!=P1 && Board[i]!=P2){
             S_A = Board;
@@ -82,7 +87,7 @@ int TTT::greedy(char P){
     int x = rand()%int(v.size());
     return v[x];
 }
-//###############################################
+
 void TTT::Q_Update(){
     float val=-100;
     std::string S_A;
@@ -98,10 +103,10 @@ void TTT::Q_Update(){
     }
     m[pre_state_action] = (1-alpha)*m[pre_state_action] + alpha*(0 + gamma*val);
 }
-//###############################################
+
 void TTT::episode(){
     reset();
-    pair <std::string, int> S_A;
+    std::pair <std::string, int> S_A;
     while (available_actions>0){
         if (P_turn == 0){
             if (available_actions<9){
@@ -130,14 +135,14 @@ void TTT::episode(){
         P_turn = 1 - P_turn;
     }
 }
-//###############################################
+
 void TTT::episodic_learning(int n){
     for (int i=0;i<n;++i){
         episode();
     }
-    std::cout<<"THE TOTAL COUNT OF P1 WINS is "<<P1_win_count<<endl;
+    std::cout<<"THE TOTAL COUNT OF P1 WINS is "<<P1_win_count<<std::endl;
 }
-//###############################################
+
 bool TTT::winner(){
     for (int i = 0;i<9;i+=3){
         if (Board[i] == Board[i+1] && Board[i+1] == Board[i+2]){
@@ -158,12 +163,12 @@ bool TTT::winner(){
     }
     return false;
 }
-//###############################################
+
 void TTT::evaluate(){
     reset();
     eps = 100;
     P_turn = 0;
-    pair <std::string , int> S_A;
+    std::pair <std::string , int> S_A;
     std::cout<<"\n ----------------------------------- \n";
     std::cout<<"\n ------------ NEW MATCH ------------ \n";
     std::cout<<"\n ----------------------------------- \n";
