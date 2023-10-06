@@ -1,4 +1,4 @@
-# RL-Based-Tic-Tac-Toe
+# AI-Based-Tic-Tac-Toe
 
 This project comes in two phases:
 1) Training an AI tic-tac-toe player
