@@ -1,6 +1,7 @@
 # AI-Based-Tic-Tac-Toe
 
-This project comes in two phases:
+This project presents teaching AI how to play tic-tac-toe, then allows a user to test the performance of the agent and play against the AI.
+The project comes in two phases:
 1) Training an AI-based tic-tac-toe player
 2) Playing against the AI
 
