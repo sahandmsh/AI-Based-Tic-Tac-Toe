@@ -1,7 +1,7 @@
 # AI-Based-Tic-Tac-Toe
 
 This project comes in two phases:
-1) Training an AI tic-tac-toe player
+1) Training an AI-based tic-tac-toe player
 2) Playing against the AI
 
 For the first phase, Q-learning method is used to allow computer to properly learn and play tic-tac-toe. The RL againt interacts and learns while playing against
